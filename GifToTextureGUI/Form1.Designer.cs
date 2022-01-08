@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.IMPORT = new System.Windows.Forms.Button();
             this.SAVE = new System.Windows.Forms.Button();
-            this.pictureBoxNearest = new GifToTextureGUI.PictureBoxWithInterpolationMode();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,9 +38,11 @@
             this.minimizeButton = new System.Windows.Forms.Button();
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNearest)).BeginInit();
+            this.interCheck = new System.Windows.Forms.CheckBox();
+            this.pictureBoxNearest = new GifToTextureGUI.PictureBoxWithInterpolationMode();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.WindowBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNearest)).BeginInit();
             this.SuspendLayout();
             // 
             // IMPORT
@@ -81,28 +82,13 @@
             this.SAVE.MouseEnter += new System.EventHandler(this.saveBtnEnter);
             this.SAVE.MouseLeave += new System.EventHandler(this.saveBtnLeave);
             // 
-            // pictureBoxNearest
-            // 
-            this.pictureBoxNearest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxNearest.BackColor = System.Drawing.Color.Black;
-            this.pictureBoxNearest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxNearest.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.pictureBoxNearest.Location = new System.Drawing.Point(14, 65);
-            this.pictureBoxNearest.Name = "pictureBoxNearest";
-            this.pictureBoxNearest.Size = new System.Drawing.Size(373, 201);
-            this.pictureBoxNearest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxNearest.TabIndex = 10;
-            this.pictureBoxNearest.TabStop = false;
-            // 
             // numericUpDown1
             // 
             this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.numericUpDown1.BackColor = System.Drawing.Color.Black;
             this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericUpDown1.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown1.Location = new System.Drawing.Point(155, 472);
+            this.numericUpDown1.Location = new System.Drawing.Point(155, 460);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(96, 43);
             this.numericUpDown1.TabIndex = 11;
@@ -206,6 +192,36 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // interCheck
+            // 
+            this.interCheck.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.interCheck.AutoSize = true;
+            this.interCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.interCheck.Font = new System.Drawing.Font("VCR OSD Mono", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.interCheck.ForeColor = System.Drawing.Color.White;
+            this.interCheck.Location = new System.Drawing.Point(139, 516);
+            this.interCheck.Name = "interCheck";
+            this.interCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.interCheck.Size = new System.Drawing.Size(126, 17);
+            this.interCheck.TabIndex = 13;
+            this.interCheck.Text = "Interpolation";
+            this.interCheck.UseVisualStyleBackColor = true;
+            this.interCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // pictureBoxNearest
+            // 
+            this.pictureBoxNearest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxNearest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxNearest.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            this.pictureBoxNearest.Location = new System.Drawing.Point(12, 65);
+            this.pictureBoxNearest.Name = "pictureBoxNearest";
+            this.pictureBoxNearest.Size = new System.Drawing.Size(375, 200);
+            this.pictureBoxNearest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxNearest.TabIndex = 14;
+            this.pictureBoxNearest.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -213,9 +229,10 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(399, 558);
+            this.Controls.Add(this.pictureBoxNearest);
+            this.Controls.Add(this.interCheck);
             this.Controls.Add(this.WindowBar);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.pictureBoxNearest);
             this.Controls.Add(this.SAVE);
             this.Controls.Add(this.IMPORT);
             this.Controls.Add(this.label2);
@@ -228,9 +245,9 @@
             this.Text = "GifToTextureGUI";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fullscreenBtn_KeyPress);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNearest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.WindowBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNearest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +264,6 @@
         private Button closeButton;
         private Button maximizeButton;
         private Button minimizeButton;
+        private CheckBox interCheck;
     }
 }

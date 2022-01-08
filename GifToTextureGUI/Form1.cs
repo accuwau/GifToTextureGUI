@@ -22,7 +22,7 @@ namespace GifToTextureGUI
     HTBOTTOMLEFT = 16,
     HTBOTTOMRIGHT = 17;
 
-        const int _ = 10; // you can rename this variable if you like
+        const int _ = 10;
 
         new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
         new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
@@ -54,11 +54,12 @@ namespace GifToTextureGUI
                 File.Copy(img_path, resulto + "GIFtoTextureGIFSAVE.gif" );
             }
             }
-
         public void SAVE_Click(object sender, EventArgs e)
         {
             string resulto = Path.GetTempPath();
             string ticks = numericUpDown1.Text;
+            var info = new MagickImageInfo(resulto + "GIFtoTextureGIFSAVE.gif");
+            if (interCheck.Checked) { interpolate = "true"; } else { interpolate = "false"; }
             if (ticks.Equals("0"))
             {
                 MessageBox.Show("You need to input a number for ticks");
@@ -69,14 +70,13 @@ namespace GifToTextureGUI
                 DialogResult dr = sfd.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+
                     string sf = sfd.FileName;
-                    //string fp = sfd.SelectedPath;
 
                     using (var collection = new MagickImageCollection(resulto + "GIFtoTextureGIFSAVE.gif"))
 
                     {
                         collection.Coalesce();
-                        //collection.Write(fileName: @"Output\TEXTURE.png");
                         using (var result = collection.AppendVertically())
                         {
                             result.Write(fileName: sf);
@@ -87,7 +87,7 @@ namespace GifToTextureGUI
                     using (FileStream fs = File.Create(sf + ".mcmeta"))
                     {
                         fs.Close();
-                        System.IO.File.WriteAllText(sf + ".mcmeta", "{\n \"animation\": { \n       \"frametime\": " + ticks + "\n    }\n}");
+                        System.IO.File.WriteAllText(sf + ".mcmeta", "{\n \"animation\": { \n \"interpolate\": " + interpolate + ",\n \"width\": " + info.Width + ",\n \"height\": " + info.Height + ", \n \"frametime\": " + ticks + "\n    }\n}");
                         fs.Close();
                     }
                     MessageBox.Show("Your textures and json are now saved to " + sf + " put both in their respective folders ");
@@ -96,6 +96,7 @@ namespace GifToTextureGUI
         }
         bool mousedown;
         private Point offset;
+        private string interpolate;
 
         private void mouseDown_Event(object sender, MouseEventArgs e)
         {
@@ -132,6 +133,11 @@ namespace GifToTextureGUI
                 this.Size = new Size(399, 558);
             }
             else WindowState = FormWindowState.Maximized;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -198,7 +204,7 @@ namespace GifToTextureGUI
         protected override void WndProc(ref Message message)
         {
             base.WndProc(ref message);
-            if (message.Msg == 0x84) // WM_NCHITTEST
+            if (message.Msg == 0x84)
             {
                 var cursor = this.PointToClient(Cursor.Position);
 
