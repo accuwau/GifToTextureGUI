@@ -90,7 +90,7 @@ namespace GifToTextureGUI
                         System.IO.File.WriteAllText(sf + ".mcmeta", "{\n \"animation\": { \n       \"frametime\": " + ticks + "\n    }\n}");
                         fs.Close();
                     }
-                    MessageBox.Show("Your textures and json are now saved to sf, \n put both in their respective folders ");
+                    MessageBox.Show("Your textures and json are now saved to " + sf + " put both in their respective folders ");
                 }
             }
         }
