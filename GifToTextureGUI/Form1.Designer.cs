@@ -215,9 +215,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxNearest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxNearest.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.pictureBoxNearest.Location = new System.Drawing.Point(12, 65);
+            this.pictureBoxNearest.Location = new System.Drawing.Point(12, 60);
             this.pictureBoxNearest.Name = "pictureBoxNearest";
-            this.pictureBoxNearest.Size = new System.Drawing.Size(375, 200);
+            this.pictureBoxNearest.Size = new System.Drawing.Size(375, 201);
             this.pictureBoxNearest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxNearest.TabIndex = 14;
             this.pictureBoxNearest.TabStop = false;
@@ -256,7 +256,6 @@
         #endregion
         private Button IMPORT;
         private Button SAVE;
-        private GifToTextureGUI.PictureBoxWithInterpolationMode pictureBoxNearest;
         private NumericUpDown numericUpDown1;
         private Label label1;
         private Label label2;
@@ -265,5 +264,6 @@
         private Button maximizeButton;
         private Button minimizeButton;
         private CheckBox interCheck;
+        private PictureBoxWithInterpolationMode pictureBoxNearest;
     }
 }
