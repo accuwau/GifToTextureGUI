@@ -2,7 +2,7 @@
 A programme for converting gif files to animated minecraft textures
 ### Features
 
-- automatic conversion from gif to tiled image and written json file for the texture
+- automatic conversion from gif to tiled image and written mcmeta file for the texture
 - interpolation checkbox for the output textures
 - adjustable ticks per second box for texture playback speed.
 - import and save buttons as well as a "viewport" to display the imported gif 
