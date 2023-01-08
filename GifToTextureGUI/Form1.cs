@@ -12,15 +12,15 @@ namespace GifToTextureGUI
             this.KeyPreview = true;
         }
 
-    private const int
-    HTLEFT = 10,
-    HTRIGHT = 11,
-    HTTOP = 12,
-    HTTOPLEFT = 13,
-    HTTOPRIGHT = 14,
-    HTBOTTOM = 15,
-    HTBOTTOMLEFT = 16,
-    HTBOTTOMRIGHT = 17;
+        private const int
+        HTLEFT = 10,
+        HTRIGHT = 11,
+        HTTOP = 12,
+        HTTOPLEFT = 13,
+        HTTOPRIGHT = 14,
+        HTBOTTOM = 15,
+        HTBOTTOMLEFT = 16,
+        HTBOTTOMRIGHT = 17;
 
         const int _ = 10;
 
@@ -51,9 +51,9 @@ namespace GifToTextureGUI
                 string img_path = ofd.FileName;
                 pictureBoxNearest.Image = new Bitmap(img_path);
                 File.Delete(resulto + "GIFtoTextureGIFSAVE.gif");
-                File.Copy(img_path, resulto + "GIFtoTextureGIFSAVE.gif" );
+                File.Copy(img_path, resulto + "GIFtoTextureGIFSAVE.gif");
             }
-            }
+        }
         public void SAVE_Click(object sender, EventArgs e)
         {
             string resulto = Path.GetTempPath();
@@ -63,7 +63,8 @@ namespace GifToTextureGUI
             if (ticks.Equals("0"))
             {
                 MessageBox.Show("You need to input a number for ticks");
-            } else
+            }
+            else
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PNG Image(*.png)|" + "*.png";
@@ -182,7 +183,8 @@ namespace GifToTextureGUI
                     maximizeButton.Visible = true;
                     minimizeButton.Visible = true;
                     closeButton.Visible = true;
-                } else
+                }
+                else
                 {
                     this.TopMost = true;
                     this.FormBorderStyle = FormBorderStyle.None;
@@ -222,4 +224,4 @@ namespace GifToTextureGUI
     }
 
 }
-    
+
