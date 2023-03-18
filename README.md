@@ -1,5 +1,13 @@
 # GifToTextureGUI
 A programme for converting gif files to animated minecraft textures
+
+### REWRITE
+i am going to be rewriting this and remaking this, not soon but im basically saying prepare for bad code.
+if you need this in a quick pinch the software works but it is not very good, optimized or well, programmed well.
+its a very hacky program, i am going to be learning how to actually code instead of google so if you see this
+expect better in the future haha
+
+
 ### Features
 
 - automatic conversion from gif to tiled image and written mcmeta file for the texture
